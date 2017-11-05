@@ -14,7 +14,6 @@ const int photoCell = A0;
 dht DHT;
 const int DHT22_PIN = 9; // Data pin of DHT 22 (AM2302)
 RTC_DS1307 rtc;
-char daysOfTheWeek[7][12] = {"Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 const int pinCS = 10; 
 const int numberOfHorizontalDisplays = 10;
 const int numberOfVerticalDisplays = 1;
@@ -32,13 +31,12 @@ boolean newMessage=false;
 String tickerText = "Insert Ticker Message";
 char incomingByte; 
 String command;
-unsigned long previousMillis = 0;        // will store last time LED was updated
+unsigned long previousMillis = 0;       
 
 void setup() {
   Serial.begin(9600);
   btSerial.begin(9600);
-  rtc.begin();
-  //rtc.adjust(DateTime(2017, 03, 21, 19, 47, 0));   // <----------------------SET TIME AND DATE: YYYY,MM,DD,HH,MM,SS
+  rtc.begin();  
   matrix.setIntensity(1); // Use a value between 0 and 15 for brightness
 }
 
